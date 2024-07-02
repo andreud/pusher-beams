@@ -1,14 +1,17 @@
 
 //import * as PusherPushNotifications from "@pusher/push-notifications-web";
 
+const instanceId = '';
+const url = 'http://localhost:32000/tecniko-api/beams-auth';
+
 async function doBeamsAuth() 
 {
     let beamsClient = new PusherPushNotifications.Client({
-        instanceId: '',
+        instanceId
     });
 
     let beamsTokenProvider = new PusherPushNotifications.TokenProvider({
-        url: 'http://localhost:32000/tecniko-api/beams-auth', // en la respuesta de este endpoint debe venir el token que se debe pasar en auth bearer
+        url// en la respuesta de este endpoint debe venir el token que se debe pasar en auth bearer
     });
  
     try {
@@ -24,7 +27,7 @@ async function doBeamsAuth()
 async function getBeamsUser() 
 {
     let beamsClient = new PusherPushNotifications.Client({
-        instanceId: '',
+        instanceId
     });
 
     // Get User ID
@@ -39,7 +42,7 @@ async function getBeamsUser()
 async function stopBeamsAuth() 
 {
     let beamsClient = new PusherPushNotifications.Client({
-        instanceId: '',
+        instanceId
     });
 
     await beamsClient.stop();
